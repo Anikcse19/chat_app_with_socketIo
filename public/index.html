@@ -48,7 +48,8 @@
       });
 
       function sendMsg() {
-        const msg = document.getElementById("msg").value;
+        const msg1 = document.getElementById("msg").value;
+        const msg = { msg: msg, name: "anik" };
         socket.emit("chat", msg);
         document.getElementById("msg").value = "";
       }
@@ -57,7 +58,7 @@
         playSound();
         let listItem = document.createElement("li");
 
-        listItem.textContent = msg;
+        listItem.textContent = msg.name;
 
         let msgHist = document.getElementById("msgHist");
         msgHist.appendChild(listItem);
